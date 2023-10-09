@@ -1,3 +1,3 @@
 From tomcat:9.0
 MAINTAINER DAVID
-Copy **/*.war /usr/local/tomcat/webapps
+COPY **/*.war /usr/local/tomcat/webapps/
