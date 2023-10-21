@@ -12,12 +12,15 @@ pipeline {
                 sh 'mvn install'
             }
         }
-        stage('build docker images ') {
-            steps {
-                script{
-            app = docker.build("antonydavid96/demowar")
-            app.inside {
-                sh 'echo $(curl localhost:8080)'
+     	stage ('Docker Image Build'){
+		    steps {
+                script {
+                    app = docker.build("antonydavid96/a13")
+                    app.inside {
+                        sh 'echo $(curl localhost:8080)'
+                    }
+                }
+            }
+        }
         }
     }
-}
