@@ -15,7 +15,7 @@ pipeline {
      	stage ('Docker Image Build'){
 		    steps {
                 script {
-                    app = docker.build("antonydavid96/a13")
+                    app = docker.build("antonydavid96/d15")
                     app.inside {
                         sh 'echo $(curl localhost:8080)'
                     }
