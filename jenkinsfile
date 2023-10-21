@@ -1,8 +1,6 @@
 pipeline {
     agent any
- triggers  {pollSCM('H/05 * * * *') }
-
-    stages {
+   stages {
         stage('scm') {
             steps {
                 git branch: 'A27', url: 'https://github.com/ANTONYDAVID96/mvn-demo.git'
@@ -14,10 +12,12 @@ pipeline {
                 sh 'mvn install'
             }
         }
-        stage('deploy') {
+        stage('build docker images ') {
             steps {
-                deploy adapters: [tomcat9(credentialsId: 'web1', path: '', url: 'http://34.224.86.128:8081/')], contextPath: 'david', war: '**/*.war'
-            }
+                script{
+            app = docker.build("antonydavid96/demowar")
+            app.inside {
+                sh 'echo $ (curl localhost:8080)'
         }
     }
 }
