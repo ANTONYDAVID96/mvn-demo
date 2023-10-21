@@ -1,3 +1,3 @@
-From tomcat :9.0
-maintainer David
-copy **/*.war  /user/local/tomcat/webapps/
+FROM tomcat :9.0
+MAINTAINER David
+COPY **/*.war  /usr/local/tomcat/webapps/
