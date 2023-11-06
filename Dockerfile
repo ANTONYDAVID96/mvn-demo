@@ -1,4 +1,5 @@
 FROM openjdk:11
-MAINTAINER David
-COPY target/my-jar-1.0-SNAPSHOT.jar /home/my-jar-1.0-SNAPSHOT.jar
-CMD ["java","-jar","/home/my-jar-1.0-SNAPSHOT.jar"]
+
+COPY target/my-jar-*.jar /my-jar.jar
+
+CMD ["java", "-jar", "/my-jar.jar"]
